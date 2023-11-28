@@ -27,7 +27,7 @@ struct Home: View {
                 RoundedRectangle(cornerRadius: 10)
                     .fill(card.cardColor)
                 
-                VStack(alignment: .leading, spacing: 10) {
+                VStack(alignment: .leading, spacing: 0) {
                     // ロゴ（右上に配置）
                     HStack {
                         Spacer()
@@ -50,9 +50,8 @@ struct Home: View {
                 .padding([.leading, .bottom])
                 .foregroundColor(.white)
             }
-            .padding()
         }
-        .frame(height: 200)
+        .frame(height: 220)
     }
 }
 
