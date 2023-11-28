@@ -7,12 +7,13 @@ struct Card: Identifiable {
     var name: String
     var cardNumber: String
     var cardColor: Color
+    var cardImage: String
     
     
 }
 
 var cards: [Card] = [
-    Card(name: "Ryo", cardNumber: "21234567890", cardColor: Color.blue),
-    Card(name: "Kolbe", cardNumber: "21234567890", cardColor: Color.green),
-    Card(name: "Fukahori", cardNumber: "21234567890", cardColor: Color.red)
+    Card(name: "Ryo", cardNumber: "21234567890", cardColor: Color.blue, cardImage: "amex"),
+    Card(name: "Kolbe", cardNumber: "21234567890", cardColor: Color.green,cardImage: "amex"),
+    Card(name: "Fukahori", cardNumber: "21234567890", cardColor: Color.red,cardImage: "amex")
 ]
