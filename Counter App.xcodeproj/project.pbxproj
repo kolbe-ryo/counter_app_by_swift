@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C91960522B162BBC0083D9E9 /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = C91960512B162BBC0083D9E9 /* Home.swift */; };
 		C93749382B1627E300885690 /* Counter_AppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C93749372B1627E300885690 /* Counter_AppApp.swift */; };
 		C937493A2B1627E300885690 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C93749392B1627E300885690 /* ContentView.swift */; };
 		C937493C2B1627E600885690 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C937493B2B1627E600885690 /* Assets.xcassets */; };
@@ -35,6 +36,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		C91960512B162BBC0083D9E9 /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
 		C93749342B1627E300885690 /* Counter App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Counter App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C93749372B1627E300885690 /* Counter_AppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Counter_AppApp.swift; sourceTree = "<group>"; };
 		C93749392B1627E300885690 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -136,6 +138,7 @@
 		C93749622B16281D00885690 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				C91960512B162BBC0083D9E9 /* Home.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -280,6 +283,7 @@
 			files = (
 				C937493A2B1627E300885690 /* ContentView.swift in Sources */,
 				C93749652B16283E00885690 /* Card.swift in Sources */,
+				C91960522B162BBC0083D9E9 /* Home.swift in Sources */,
 				C93749382B1627E300885690 /* Counter_AppApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
