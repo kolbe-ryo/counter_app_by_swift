@@ -22,20 +22,35 @@ struct Home: View {
     @ViewBuilder
     func CardView(card: Card) -> some View {
         GeometryReader { proxy in
-            ZStack(alignment: .bottomLeading) {
+            ZStack(alignment: .leading) {
+                // カード背景
+                RoundedRectangle(cornerRadius: 10)
+                    .fill(card.cardColor)
+                
                 VStack(alignment: .leading, spacing: 10) {
-                    Text(card.name)
-                        .fontWeight(.bold)
+                    // ロゴ（右上に配置）
+                    HStack {
+                        Spacer()
+                        Image("amex")
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 40)
+                            .padding()
+                    }
+                    
+                    Spacer()
                     
                     Text(card.cardNumber)
+                        .fontWeight(.bold)
+                    
+                    Text(card.name)
                         .font(.callout)
                         .fontWeight(.bold)
                 }
+                .padding([.leading, .bottom])
+                .foregroundColor(.white)
             }
-            .frame(maxWidth: .infinity, maxHeight: 200)
-            .background(card.cardColor) // カードの背景色を設定
-            .cornerRadius(10) // カードの角の半径を設定
-            .shadow(radius: 5) // カードに影を追加
+            .padding()
         }
         .frame(height: 200)
     }
