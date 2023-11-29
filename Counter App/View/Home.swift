@@ -40,7 +40,7 @@ struct Home: View {
                     
                     Spacer()
                     
-                    Text(card.cardNumber)
+                    Text(customisedCardNumber(number:card.cardNumber))
                         .fontWeight(.bold)
                     
                     Text(card.name)
@@ -52,6 +52,20 @@ struct Home: View {
             }
         }
         .frame(height: 220)
+    }
+    
+    func customisedCardNumber(number: String) -> String {
+        var customisedValue: String = ""
+        let unCealCount: Int = number.count - 4
+        
+        number.enumerated().forEach { value in
+            if value.offset < unCealCount {
+                customisedValue.append(contentsOf: String(value.element))
+            } else {
+                customisedValue.append(contentsOf: "*")
+            }
+        }
+        return customisedValue
     }
 }
 
