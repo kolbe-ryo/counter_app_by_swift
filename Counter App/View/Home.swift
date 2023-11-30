@@ -59,10 +59,14 @@ struct Home: View {
         let unCealCount: Int = number.count - 4
         
         number.enumerated().forEach { value in
-            if value.offset < unCealCount {
+            if value.offset >= unCealCount {
                 customisedValue.append(contentsOf: String(value.element))
             } else {
-                customisedValue.append(contentsOf: "*")
+                if String(value.element) == " " {
+                    customisedValue.append(contentsOf: " ")
+                } else {
+                    customisedValue.append(contentsOf: "*")
+                }
             }
         }
         return customisedValue
