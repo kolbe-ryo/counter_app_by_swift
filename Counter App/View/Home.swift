@@ -1,8 +1,9 @@
 import SwiftUI
 
 struct Home: View {
+    @State var expandCards: Bool = false
+    
     var body: some View {
-        
         VStack {
             Text("Wallet")
                 .font(.largeTitle)
@@ -15,6 +16,17 @@ struct Home: View {
                         CardView(card: card)
                     }
                 }
+                .overlay {
+                    Rectangle()
+                        .fill(.black.opacity(expandCards ? 0 : 0.01))
+                        .onTapGesture {
+                            withAnimation(
+                                .easeInOut(duration: 0.35)
+                            ) {
+                                expandCards = true
+                            }
+                        }
+                }
             }
             .coordinateSpace(name: "SCROLL")
         }
@@ -24,7 +36,7 @@ struct Home: View {
     @ViewBuilder
     func CardView(card: Card) -> some View {
         GeometryReader { proxy in
-                
+            
             let rect = proxy.frame(in: .named("SCROLL"))
             
             let offset = -rect.minY + CGFloat(getIndex(Card: card)*70)
@@ -57,7 +69,7 @@ struct Home: View {
                 .padding([.leading, .bottom])
                 .foregroundColor(.white)
             }
-            .offset(y:  offset)
+            .offset(y: expandCards ? 0 : offset)
         }
         .frame(height: 220)
     }
