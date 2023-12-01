@@ -39,7 +39,7 @@ struct Home: View {
             
             let rect = proxy.frame(in: .named("SCROLL"))
             
-            let offset = -rect.minY + CGFloat(getIndex(Card: card)*70)
+            let offset = CGFloat(getExpandRect(Card: card))
             
             ZStack(alignment: .leading) {
                 // カード背景
@@ -69,15 +69,16 @@ struct Home: View {
                 .padding([.leading, .bottom])
                 .foregroundColor(.white)
             }
-            .offset(y: expandCards ? 0 : offset)
+            .offset(y: expandCards ? offset : offset - rect.minY)
         }
         .frame(height: 220)
     }
     
-    func getIndex(Card: Card) -> Int{
-        return cards.firstIndex{ currentCard in
+    func getExpandRect(Card: Card) -> Int{
+        let index = cards.firstIndex{ currentCard in
             return currentCard.id == Card.id
         } ?? 0
+        return index * (expandCards ? 10 : 70)
     }
     
     func customisedCardNumber(number: String) -> String {
