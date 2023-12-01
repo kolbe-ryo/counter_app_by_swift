@@ -2,6 +2,7 @@ import SwiftUI
 
 struct Home: View {
     var body: some View {
+        
         VStack {
             Text("Wallet")
                 .font(.largeTitle)
@@ -15,6 +16,7 @@ struct Home: View {
                     }
                 }
             }
+            .coordinateSpace(name: "SCROLL")
         }
         .padding([.horizontal, .top])
     }
@@ -22,6 +24,11 @@ struct Home: View {
     @ViewBuilder
     func CardView(card: Card) -> some View {
         GeometryReader { proxy in
+                
+            let rect = proxy.frame(in: .named("SCROLL"))
+            
+            let offset = -rect.minY + CGFloat(getIndex(Card: card)*70)
+            
             ZStack(alignment: .leading) {
                 // カード背景
                 RoundedRectangle(cornerRadius: 10)
@@ -50,8 +57,15 @@ struct Home: View {
                 .padding([.leading, .bottom])
                 .foregroundColor(.white)
             }
+            .offset(y:  offset)
         }
         .frame(height: 220)
+    }
+    
+    func getIndex(Card: Card) -> Int{
+        return cards.firstIndex{ currentCard in
+            return currentCard.id == Card.id
+        } ?? 0
     }
     
     func customisedCardNumber(number: String) -> String {
