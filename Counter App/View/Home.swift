@@ -8,7 +8,40 @@ struct Home: View {
             Text("Wallet")
                 .font(.largeTitle)
                 .fontWeight(.semibold)
-                .frame(maxWidth: .infinity, alignment: .center)
+                .frame(
+                    maxWidth: .infinity,
+                    alignment: expandCards ? .leading: .center
+                )
+                .overlay(
+                    alignment: .trailing,
+                    content: {
+                        // MARK: Close Button
+                        Button {
+                            withAnimation(
+                                .interactiveSpring(
+                                    response: 0.8,
+                                    dampingFraction: 0.7,
+                                    blendDuration: 0.7
+                                )
+                            ) {
+                                expandCards = false
+                            }
+                        } label: {
+                            Image(systemName: "plus")
+                                .foregroundColor(.white)
+                                .padding(10)
+                                .background(.blue, in: Circle())
+                        }
+                        .rotationEffect(
+                            .init(
+                                degrees: expandCards ? 45 : 0
+                            )
+                        )
+                        .offset(x: expandCards ? 0 : 15)
+                        .opacity(expandCards ? 1 : 0)
+                    }
+                )
+                .padding(.horizontal, 15)
             
             ScrollView(.vertical, showsIndicators: false) {
                 VStack(spacing: 0) {
