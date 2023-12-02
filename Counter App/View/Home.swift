@@ -4,7 +4,7 @@ struct Home: View {
     @State var expandCards: Bool = false
     
     var body: some View {
-        VStack {
+        VStack(spacing: 0) {
             Text("Wallet")
                 .font(.largeTitle)
                 .fontWeight(.semibold)
