@@ -60,8 +60,10 @@ struct Home: View {
                             }
                         }
                 }
+                .padding(.top, expandCards ? 30 : 0)
             }
             .coordinateSpace(name: "SCROLL")
+            .offset(y: expandCards ? 0 : 30)
         }
         .padding([.horizontal, .top])
     }
