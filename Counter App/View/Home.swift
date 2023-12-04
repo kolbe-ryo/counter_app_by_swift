@@ -42,6 +42,7 @@ struct Home: View {
                     }
                 )
                 .padding(.horizontal, 15)
+                .padding(.bottom, 10)
             
             ScrollView(.vertical, showsIndicators: false) {
                 VStack(spacing: 0) {
@@ -64,6 +65,23 @@ struct Home: View {
             }
             .coordinateSpace(name: "SCROLL")
             .offset(y: expandCards ? 0 : 30)
+            
+            Button {
+            } label: {
+                Image(systemName: "plus")
+                    .foregroundColor(.white)
+                    .padding(20)
+                    .background(.blue, in: Circle())
+            }
+            .rotationEffect(
+                .init(
+                    degrees: expandCards ? 180 : 0
+                )
+            )
+            .scaleEffect(expandCards ? 0.01 : 1)
+            .opacity(!expandCards ? 1 : 0)
+            .frame(height: expandCards ? 0 : nil)
+            .padding(.bottom, expandCards ? 0 : 30)
         }
         .padding([.horizontal, .top])
     }
