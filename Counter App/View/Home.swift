@@ -159,3 +159,12 @@ struct Home: View {
     Home()
 }
 
+struct DetailView: View {
+    var currentCard: Card
+    @Binding var showDetailCard: Bool
+    var body: some View {
+        VStack {
+            
+        }
+    }
+}
