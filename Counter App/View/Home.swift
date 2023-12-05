@@ -2,6 +2,8 @@ import SwiftUI
 
 struct Home: View {
     @State var expandCards: Bool = false
+    @State var currentCard: Card?
+    @State var showDetailCard: Bool = false
     
     var body: some View {
         VStack(spacing: 0) {
@@ -156,3 +158,4 @@ struct Home: View {
 #Preview {
     Home()
 }
+
