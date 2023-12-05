@@ -86,6 +86,15 @@ struct Home: View {
             .padding(.bottom, expandCards ? 0 : 30)
         }
         .padding([.horizontal, .top])
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .overlay {
+            if let currentCard = currentCard, showDetailCard {
+                DetailView(
+                    currentCard: currentCard,
+                    showDetailCard: $showDetailCard
+                )
+            }
+        }
     }
     
     @ViewBuilder
