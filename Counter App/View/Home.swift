@@ -175,5 +175,15 @@ struct DetailView: View {
         VStack {
             
         }
+        .frame(
+            maxWidth: .infinity,
+            maxHeight: .infinity,
+            alignment: .top
+        )
+    }
+    
+    @ViewBuilder
+    func CardView() -> some View {
+        
     }
 }
