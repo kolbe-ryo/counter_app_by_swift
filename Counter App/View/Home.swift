@@ -144,28 +144,28 @@ struct Home: View {
         } ?? 0
         return index * (expandCards ? 10 : 70)
     }
-    
-    func customisedCardNumber(number: String) -> String {
-        var customisedValue: String = ""
-        let unCealCount: Int = number.count - 4
-        
-        number.enumerated().forEach { value in
-            if value.offset >= unCealCount {
-                customisedValue.append(contentsOf: String(value.element))
-            } else {
-                if String(value.element) == " " {
-                    customisedValue.append(contentsOf: " ")
-                } else {
-                    customisedValue.append(contentsOf: "*")
-                }
-            }
-        }
-        return customisedValue
-    }
 }
 
 #Preview {
     Home()
+}
+
+func customisedCardNumber(number: String) -> String {
+    var customisedValue: String = ""
+    let unCealCount: Int = number.count - 4
+    
+    number.enumerated().forEach { value in
+        if value.offset >= unCealCount {
+            customisedValue.append(contentsOf: String(value.element))
+        } else {
+            if String(value.element) == " " {
+                customisedValue.append(contentsOf: " ")
+            } else {
+                customisedValue.append(contentsOf: "*")
+            }
+        }
+    }
+    return customisedValue
 }
 
 struct DetailView: View {
