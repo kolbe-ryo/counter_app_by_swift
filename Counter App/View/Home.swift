@@ -184,6 +184,33 @@ struct DetailView: View {
     
     @ViewBuilder
     func CardView() -> some View {
-        
+        ZStack(alignment: .leading) {
+            // カード背景
+            RoundedRectangle(cornerRadius: 10)
+                .fill(currentCard.cardColor)
+            
+            VStack(alignment: .leading, spacing: 0) {
+                // ロゴ（右上に配置）
+                HStack {
+                    Spacer()
+                    Image("amex")
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 40)
+                        .padding()
+                }
+                
+                Spacer()
+                
+                Text(customisedCardNumber(number:currentCard.cardNumber))
+                    .fontWeight(.bold)
+                
+                Text(currentCard.name)
+                    .font(.callout)
+                    .fontWeight(.bold)
+            }
+            .padding([.leading, .bottom])
+            .foregroundColor(.white)
+        }
     }
 }
