@@ -173,8 +173,8 @@ struct DetailView: View {
     @Binding var showDetailCard: Bool
     var body: some View {
         VStack {
-            
-        }
+            CardView()
+            .frame(height: 200)        }
         .frame(
             maxWidth: .infinity,
             maxHeight: .infinity,
