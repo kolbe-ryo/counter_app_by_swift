@@ -50,6 +50,13 @@ struct Home: View {
                 VStack(spacing: 0) {
                     ForEach(cards) { card in
                         CardView(card: card)
+                            .onTapGesture {
+                                .withAnimation(
+                                    .easeInOut(duration: 0.35){
+                                        currentCard = card
+                                        showDetailCard = true
+                                })
+                            }
                     }
                 }
                 .overlay {
