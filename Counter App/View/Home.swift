@@ -51,6 +51,10 @@ struct Home: View {
                 VStack(spacing: 0) {
                     ForEach(cards) { card in
                         CardView(card: card)
+                            .matchedGeometryEffect(
+                                id: card.id,
+                                in: animation
+                            )
                             .onTapGesture {
                                 withAnimation(
                                     .easeInOut(duration: 0.35)){
@@ -100,6 +104,7 @@ struct Home: View {
                 DetailView(
                     currentCard: currentCard,
                     showDetailCard: $showDetailCard
+//                    animation: animation
                 )
             }
         }
@@ -186,7 +191,7 @@ struct DetailView: View {
             CardView()
                 .matchedGeometryEffect(
                     id: currentCard.id,
-                    in:animation
+                    in: animation
                 )
                 .frame(height: 200)
         }
