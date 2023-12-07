@@ -4,6 +4,7 @@ struct Home: View {
     @State var expandCards: Bool = false
     @State var currentCard: Card?
     @State var showDetailCard: Bool = false
+    @Namespace var animation
     
     var body: some View {
         VStack(spacing: 0) {
@@ -51,11 +52,11 @@ struct Home: View {
                     ForEach(cards) { card in
                         CardView(card: card)
                             .onTapGesture {
-                                .withAnimation(
-                                    .easeInOut(duration: 0.35){
+                                withAnimation(
+                                    .easeInOut(duration: 0.35)){
                                         currentCard = card
                                         showDetailCard = true
-                                })
+                                    }
                             }
                     }
                 }
@@ -177,11 +178,18 @@ func customisedCardNumber(number: String) -> String {
 
 struct DetailView: View {
     var currentCard: Card
+    var animation: Namespace.ID
+    
     @Binding var showDetailCard: Bool
     var body: some View {
         VStack {
             CardView()
-            .frame(height: 200)        }
+                .matchedGeometryEffect(
+                    id: currentCard.id,
+                    in:animation
+                )
+                .frame(height: 200)
+        }
         .frame(
             maxWidth: .infinity,
             maxHeight: .infinity,
